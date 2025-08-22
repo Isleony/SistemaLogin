@@ -1,84 +1,69 @@
-package aula04;
+packge Aula04
 
 import java.util.Scanner;
 
-public class SistemaFilmesSimples {
-
+public class SistemaFilmesTestado {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String usuarioCorreto = "admin";
-        String senhaCorreta = "12345";
+        String usuario = "admin";
+        String senha = "123";
         boolean logado = false;
-        String[] filmes = new String[100];
-        int totalFilmes = 0;
+        String[] filmes = new String[50];
+        int quantidade = 0;
 
         while (true) {
             if (!logado) {
-
-                System.out.println("\n=== LOGIN ===");
+                System.out.println("\n--- LOGIN ---");
                 System.out.print("Usuário: ");
-                String usuario = scanner.nextLine();
+                String inputUser = scanner.nextLine();
                 System.out.print("Senha: ");
-                String senha = scanner.nextLine();
-
-                if (usuario.equals(usuarioCorreto) && senha.equals(senhaCorreta)) {
+                String inputSenha = scanner.nextLine();
+                
+                if (inputUser.equals(usuario) && inputSenha.equals(senha)) {
                     logado = true;
-                    System.out.println("Login realizado com sucesso!");
+                    System.out.println("Login feito!");
                 } else {
-                    System.out.println("Usuário ou senha incorretos!");
+                    System.out.println("Erro!");
                 }
             } else {
-
-                System.out.println("SISTEMA DE FILMES: ");
-                System.out.println("1. Cadastrar filme:");
-                System.out.println("2. Listar filmes");
+                System.out.println("\n--- MENU ---");
+                System.out.println("1. Cadastrar filme");
+                System.out.println("2. Ver filmes");
                 System.out.println("3. Sair");
-                System.out.print("Escolha uma opção: ");
-
+                System.out.print("Opção: ");
+                
                 int opcao = scanner.nextInt();
                 scanner.nextLine();
-
+                
                 switch (opcao) {
                     case 1:
-
-                        if (totalFilmes < filmes.length) {
-                            System.out.print("Digite o nome do filme: ");
-                            <br>
-                            System.out.print("Digite o ano do filme: ");
-                            <br>
-                            System.out.print("Digite o genero do filme: ");
-                            <br>
-                            String filme = scanner.nextLine();
-                            filmes[totalFilmes] = filme;
-                            totalFilmes++;
-                            System.out.println("Filme cadastrado com sucesso!: " + filme);
-                        } else {
-                            System.out.println("Limite de filmes atingido!");
-                        }
+                        System.out.print("Nome do filme: ");
+                        filmes[quantidade] = scanner.nextLine();
+                        quantidade++;
+                        System.out.println("Filme salvo!");
                         break;
-
+                        
                     case 2:
-
-                        System.out.println("Filmes cadastrados");
-                        if (totalFilmes == 0) {
-                            System.out.println("Nenhum filme cadastrado.");
+                        System.out.println("\n--- FILMES ---");
+                        if (quantidade == 0) {
+                            System.out.println("Nenhum filme");
                         } else {
-                            for (int i = 0; i < totalFilmes; i++) {
-                                System.out.println((i + 1) + ". " + filmes[i]);
+                            for (int i = 0; i < quantidade; i++) {
+                                System.out.println((i+1) + ". " + filmes[i]);
                             }
                         }
                         break;
-
+                        
                     case 3:
-
                         logado = false;
-                        System.out.println("Logout realizado. Volte sempre!");
+                        System.out.println("Saindo...");
                         break;
-
+                        
                     default:
-                        System.out.println("Ta invalido!");
+                        System.out.println("Inválido!");
                 }
             }
         }
     }
 }
+
