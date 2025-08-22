@@ -2,7 +2,7 @@ packge Aula04
 
 import java.util.Scanner;
 
-public class SistemaFilmesTestado {
+public class SistemaFilmes{
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String usuario = "admin";
@@ -13,7 +13,7 @@ public class SistemaFilmesTestado {
 
         while (true) {
             if (!logado) {
-                System.out.println("\n--- LOGIN ---");
+                System.out.println("LOGIN ");
                 System.out.print("Usuário: ");
                 String inputUser = scanner.nextLine();
                 System.out.print("Senha: ");
@@ -26,7 +26,7 @@ public class SistemaFilmesTestado {
                     System.out.println("Erro!");
                 }
             } else {
-                System.out.println("\n--- MENU ---");
+                System.out.println("MENU ");
                 System.out.println("1. Cadastrar filme");
                 System.out.println("2. Ver filmes");
                 System.out.println("3. Sair");
@@ -44,7 +44,7 @@ public class SistemaFilmesTestado {
                         break;
                         
                     case 2:
-                        System.out.println("\n--- FILMES ---");
+                        System.out.println(" FILMES ");
                         if (quantidade == 0) {
                             System.out.println("Nenhum filme");
                         } else {
@@ -60,7 +60,7 @@ public class SistemaFilmesTestado {
                         break;
                         
                     default:
-                        System.out.println("Inválido!");
+                        System.out.println("Inválido");
                 }
             }
         }
